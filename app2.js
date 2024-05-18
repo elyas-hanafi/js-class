@@ -6,10 +6,9 @@ function greet(name = "Guest") {
 greet(); // Output: Hello, Guest!
 greet("John"); // Output: Hello, John!
 
-passing arguments
+// passing arguments
 function add(a, b) {
   return a + b;
-
 }
 
 const result = add(5, 3);
@@ -28,7 +27,7 @@ function sayHello(greetFunc) {
 
 sayHello(greet); // Output: Hello!
 
-B) function return new function => HOF
+// B) function return new function => HOF
 function addSuffix(suffix) {
   function name(word) {
     return word + " " + suffix;
@@ -88,7 +87,7 @@ function outerFunction() {
 const closureExample = outerFunction();
 closureExample(); // Output: I'm outside!
 
-this introduction
+// this introduction
 
 const person = {
   name: "Jane",
@@ -130,8 +129,6 @@ counter();
 counter();
 
 // IIFE
-
-
 
 (function () {
   console.log("hello i am IIFE");
