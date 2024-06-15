@@ -6,7 +6,7 @@
  * In these examples, we destructure an array and an object to extract their elements into separate variables.
  */
 const fruits = ["Apple", "Banana", "Cherry"];
-const [first, second] = fruits;
+const [first, second, third] = fruits;
 console.log(first); // Apple
 console.log(second); // Banana
 
@@ -25,7 +25,11 @@ const colors = ["Red", "Green"];
 const [primary, secondary, tertiary = "Blue"] = colors;
 console.log(tertiary); // Blue
 
-const student = { id: 1, details: { name: "Jane", grade: "A" } };
+const student = {
+  id: 1,
+  details: { name: "Jane", grade: "A" },
+};
+
 const {
   details: { name: studentName, grade },
 } = student;
@@ -41,11 +45,15 @@ function displayPerson({ name, age, address: { city } }) {
   console.log(`Name: ${name}, Age: ${age}, City: ${city}`);
 }
 
-const personInfo = { name: "Alice", age: 25, address: { city: "Wonderland" } };
+const personInfo = {
+  name: "Alice",
+  age: 25,
+  address: { city: "Wonderland" },
+};
 displayPerson(personInfo);
 
-let a = 5,
-  b = 10;
+let a = 5;
+let b = 10;
 [a, b] = [b, a];
 console.log(a); // 10
 console.log(b); // 5
@@ -77,7 +85,7 @@ console.log(originalArray); // [1, 2, 3]
 console.log(copiedArray); // [1, 2, 3, 4]
 
 const user = { name: "Bob" };
-const preferences = { theme: "dark" };
+const preferences = { name: "dark" };
 const settings = { ...user, ...preferences };
 console.log(settings); // { name: 'Bob', theme: 'dark' }
 
@@ -108,7 +116,7 @@ console.log(deepCopy.a.b); // 2
 function add(...numbers) {
   return numbers.reduce((sum, number) => sum + number, 0);
 }
-console.log(add(1, 2, 3, 4)); // 10
+console.log(add(1, 2, 3, 4, 5, 6)); // 10
 
 // Medium
 /**
