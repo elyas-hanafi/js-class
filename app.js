@@ -14,7 +14,10 @@ const updateItem = (item) => ({
   type: UPDATE_ITEM,
   payload: item,
 });
-
+const removeItem = (item) => ({
+  type: REMOVE_ITEM,
+  payload: item,
+});
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM:
@@ -32,6 +35,11 @@ const reducer = (state = initialState, action) => {
             return item;
           }
         }),
+      };
+    case REMOVE_ITEM:
+      return {
+        ...state,
+        items: state.items.filter((item) => item.id !== action.payload.id),
       };
     default:
       return state;
@@ -66,5 +74,14 @@ store.dispatch(
   updateItem({ id: 3, name: "Item Updated => item 3", value: 10 })
 );
 
+store.dispatch(
+  removeItem({ id: 3, name: "Item Updated => item 3", value: 10 })
+);
+store.dispatch(
+  removeItem({ id: 2, name: "Item Updated => item 3", value: 10 })
+);
+store.dispatch(
+  removeItem({ id: 1, name: "Item Updated => item 3", value: 10 })
+);
 console.log(store.getState()); // { items: [] }
 // console.log(store.getState()); // { items: [] }
